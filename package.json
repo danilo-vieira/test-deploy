@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/src/server.js",
-    "dev": "tsnd --no-notify --respawn --transpile-only --ignore-watch node_modules ./src/server.ts",
-    "knex": "knex --knexfile dist/knexfile.js",
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "knex:migrate": "knex --knexfile dist/knexfile.js migrate:latest",
+    "knex:rollback": "knex --knexfile dist/knexfile.js migrate:rollback",
     "build": "tsc"
   },
   "dependencies": {
